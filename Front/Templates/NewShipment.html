@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/Front/Css/Shippment.css">
+  <link rel="stylesheet" href="/Front/Css/Navbar.css" />
+  <script src="/Front/Script/auth.js"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="/Front/Script/shipment.js"></script>
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="logo_item">
+      <i class="bx bx-menu" id="sidebarOpen"></i>
+      <img src="/Front/images/log.png" alt=""></i>Exafluence
+    </div>
+    <div class="search_bar">
+      <h2>SCMXPERTLITE</h2>
+    </div>
+    <div class="navbar_content">
+      <i class="bi bi-grid"></i>
+      <a class="txt" href="/Front/Templates/About.html">About</a>
+      <a href="/Front/Templates/useracc.html">
+        <img src="/Front/images/log.png" alt="" class="profile" />
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar -->
+  <nav class="sidebar">
+    <div class="menu_content">
+      <ul class="menu_items">
+        <li class="item">
+          <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
+            <span class="navlink_icon">
+              <i class="bx bx-home-alt"></i>
+            </span>
+            <span class="navlink">Dashboard</span>
+          </a>
+        </li>
+
+        <!-- end -->
+      </ul>
+      <ul class="menu_items">
+        <!-- duplicate these li tag if you want to add or remove navlink only -->
+        <!-- Start -->
+        <li class="item">
+          <a href="/Front/Templates/Myshipment.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-package"></i>
+            </span>
+            <span class="navlink">My shippment</span>
+          </a>
+        </li>
+        <!-- End -->
+        <li class="item">
+          <a href="/Front/Templates/NewShipment.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-loader-circle"></i>
+            </span>
+            <span class="navlink">New Shipment</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="/Front/Templates/DeviceData.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-data"></i>
+            </span>
+            <span class="navlink">Device Data</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu_items">
+        
+        <li class="item">
+          <a href="/Front/Templates/index.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-log-out-circle"></i>
+            </span>
+            <span class="navlink">Log out</span>
+          </a>
+        </li>
+
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+           
+            <i class='bx bx-log-in'></i>
+          </div>
+          <div class="bottom collapse_sidebar" onclick="press()">
+            <!-- <span> close</span> -->
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+    </div>
+  </nav>
+</body>
+
+</html>
+
+<body>
+  <section class="form-container">
+
+    <form id="shipment-form">
+      <h1 class="form-header">New Shipment</h1>
+      <div class="form">
+        <div class="form-item form-item1  aabbcc">
+          <label for="firstname">Shipment Number*</label>
+          <input id="shipmentnum" type="number" name="firstname" required />
+        </div>
+
+        <div class="form-item form-item1 aabbcc">
+          <label for="RouteDetails">RouteDetails*</label>
+          <select id="routeDetails" name="routeDetails" required>
+            <!-- Add your route options here -->
+            <option value="Bangalore-Chennai">Bangalore-Chennai</option>
+            <option value="Chennai-Banglore">Chennai-Banglore</option>
+            
+            <option value="Hyderabad-Kochin">Hyderabad-Kochin </option>
+            <option value="Kochin-New Delhi">Kochin-New Delhi</option>
+            <option value="Kolkata-Mumbai">Kolkata-Mumbai</option>
+            <option value="New Delhi-Tirupathi">New Delhi-Tirupathi</option>
+            <option value="Mumbai-Kolkata">Mumbai-Kolkata</option>
+            <option value="Tirupathi-Chennai">Tirupathi-Chennai</option>
+          </select>
+        </div>
+
+        <div class="form-item form-item2 aabbcc">
+          <label for="phonenumber">Device*</label>
+          <input id="devicedata" type="tel" name="phonenumber" required />
+        </div>
+        <div class="form-item form-item2 aabbcc">
+          <label for="lastname">PhNumber*</label>
+          <input  id="PhNumber" type="number" name="lastname" required />
+        </div>
+
+        <div class="form-item form-item2 aabbcc">
+          <label for="phonenumber">NdcNumber*</label>
+          <input id="ndcNumber" type="tel" name="phonenumber" />
+        </div>
+
+        <div class="form-item form-item2 aabbcc">
+          <label for="SerialNumber">SerialNumber*</label>
+          <input id="serialnumber" type="input" name="SerialNumber" required />
+        </div>
+
+        <div class="form-item form-item3 aabbcc">
+          <label for="ContainerNum">ContainerNum*</label>
+          <input id="containerNum" type="number" name="containerNum" required />
+        </div>
+        <div class="form-item form-item2 aabbcc">
+          <label for="goodstype">GoodsType*</label>
+          <input id="goodstype" type="tel" name="goodstype" required />
+        </div>
+
+        <div class="form-item form-item2 aabbcc">
+          <label for="ExpectedDeliveryDate"> ExpectedDeliveryDate*</label>
+          <input id="expecteddeliveryDate" type="date" name="expecteddeliveryDate" required />
+        </div>
+        <div class="form-item form-item2 aabbcc">
+          <label for="delivertnumber">DelivertNumber*</label>
+          <input id="delivertnumber" type="tel" name="phonenumber" required />
+        </div>
+        <div class="form-item form-item2 aabbcc">
+          <label for="phonenumber">BatchId*</label>
+          <input id="batchid" type="tel" name="phonenumber" required />
+        </div>
+
+        <div class="form-item form-item2 aabbcc">
+          <label for="shipmentdescription"> ShipmentDescription*</label>
+          <input id="shipmentdescription" type="input" name="ShipmentDescription" required />
+          <input id="submit" class="btn btn-glow form-btn" type="submit" name="submit" value="Create"
+            onsubmit="createShipment()">
+          <input id="submit" class="btn btn-glow form-btn" type="reset" value="Clear" onclick="clear()">
+        </div>
+
+
+      </div>
+      </div>
+    </form>
+  </section>
+</body>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/Front/Css/Shippment.css">
+  
+    <link rel="stylesheet" href="/Front/Css/Navbar.css" />
+    <link rel="stylesheet" href="/Front/Css/devicedata.css">
+    <script src="/Front/Script/Sidebar.js"></script>
+    <script src="/Front/Script/auth.js"></script>
+    <script src="/Front/Script/Devicedata.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+  <body>
+    <!-- navbar -->
+    
+    <nav class="navbar">
+      <div class="logo_item">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img src="/Front/images/log.png" alt=""></i>Exafluence
+      </div>
+      <div class="search_bar">
+        <h2>SCMXPERTLITE</h2>
+      </div>
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+            <a  class="txt" href="/Front/Templates/About.html">About</a>
+            <a href="/Front/Templates/useracc.html">
+              <img src="/Front/images/log.png" alt="" class="profile" />
+            </a>
+      </div>
+    </nav>
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <!-- start -->
+          <li class="item">
+            <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Dashboard</span>
+            </a>
+          </li>
+        
+          <!-- end -->
+        </ul>
+        <ul class="menu_items">
+          <li class="item">
+            <a href="/Front/Templates/Myshipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-package"></i>
+              </span>
+              <span class="navlink">My shippment</span>
+            </a>
+          </li>
+          <!-- End -->
+          <li class="item">
+            <a href="/Front/Templates/NewShipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-loader-circle"></i>
+              </span>
+              <span class="navlink">New Shipment</span>
+            </a>
+        </li>
+          <li class="item">
+            <a href="/Front/Templates/DeviceData.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-data"></i>
+              </span>
+              <span class="navlink">Device Data</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <!-- <div class="menu_title menu_setting"></div> -->
+          <li class="item">
+            <a href="/Front/Templates/index.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-log-out-circle"></i>
+              </span>
+              <span class="navlink">Log out</span>
+            </a>
+          </li>
+          
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <!-- <span> Expand</span> -->
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar" onclick="press()">
+            <!-- <span> close</span> -->
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- JavaScript -->
+    
+  </body>
+</html>
+<body>
+  <section class="form-container">
+	
+  <body>
+      <div class="container">
+       <h1 class="form-header">Device data</h1>
+      
+        <div id="search">
+            <label for="searchInput">Search DeviceId</label>
+            <input id="searchInput" type="text"
+             class="button-container">
+              <input id="submit" class="btn btn-glow form-btn" type="submit" name="submit" value="Get device data"
+            onsubmit="">
+          <table class="table table-bordered table-hover">
+            <div class="table-responsive my-2">
+                
+                    <thead class="table-danger" id="table-body">
+                        <tr>
+                            <th>Battery_Level</th>
+                            <th id="Device_ID">Device_ID</th>
+                            <th>First_SensorTemperature</th>
+                            <th>Route_From</th>
+                            <th>Route_To</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-body">
+                        <!-- Table rows will be dynamically added by JavaScript -->
+                    </tbody>
+          </table>
+        </div>
+     </div>
+    </div>
+  
+  </body>
+  </section>
+</body>
+
+</body>
+</html>

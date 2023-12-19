@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Front/Css/index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf7hx0pAAAAAO-hA6lGJI2P16y8ZUaRLaFUCh5V" async defer></script> -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+    <script src="/Front/Script/signin.js"></script>
+    <script src="/Front/Script/signup.js"></script>
+    
+    
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="/Front/images/Shipp.mp4" type="video/mp4">
+    </video>
+    <div class="login-wrap">
+        <h2 class="header">SCMXPERTLITE</h2>
+
+        <div class="login_html">
+            <input id="tab-1" type="radio" name="tab" class="sign_in" checked>
+            <label for="tab-1" class="tab">Sign In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign_up">
+            <label for="tab-2" class="tab">Sign Up</label>
+            <div class="login_form">
+                <div class="sign_in_htm">
+                    <form id="sign_in" method="post" autocomplete="off">
+                        <div class="group">
+                            <label for="user" class="label">Email</label>
+                            <input id="signEmail" type="text" class="input" required>
+                            <p id="EmailError" style="color: rgb(255, 169, 169);"></p>
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="password" type="password" class="input" required>
+                            <p id="userpassword" style="color: rgb(255, 160, 160);"></p>
+                            <label><input type="checkbox" onclick="myfunction()" id="checkbox">Show Password</label>
+                        </div>
+                        <div class="g-recaptcha" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR" aria-required="true">
+                        </div>
+                        <div class="group">
+                            <a>
+                                <input type="submit" class="button" value="sign in" onsubmit="signIn()">
+                            </a>
+                        </div>
+                        <div class="foot_lnk">
+                            <a href="/Front/Templates/forgotpassword.html">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="sign_up_htm">
+                    <form id="sign_up" autocomplete="off">
+                        <div class="group">
+                            <label for="user" class="label">Username</label>
+                            <input id="username" name="username" type="text" class="input" required>
+                        </div>
+                        <div class="group">
+                            <label for="signupEmail" class="label">Email Address</label>
+                            <input id="signupEmail" name="email" type="text" class="input" required>
+                            <p id="mailError" style="color: rgb(255, 169, 169);"></p>
+                        </div>
+                        <div class="group">
+                            <label for="upassword" class="label">Password</label>
+                            <input type="password" id="upassword" class="input" class="has-success" required>
+                            <p id="passwordError" style="color: rgb(255, 152, 152);"></p>
+                        </div>
+                
+                        <div class="group">
+                            <label for="confirmpassword" class="label">Confirm Password</label>
+                            <input type="password" id="confirmpassword" class="input" required>
+                            <p id="confirmPasswordError" style="color: rgb(255, 152, 152);"></p>
+                        </div>
+                        
+
+                        <div class="group">
+                            <label><input type="checkbox" onclick="myFunction()" id="checkbox">Show Password</label>
+                            <input type="submit" class="button" value="Sign Up" onsubmit= "signUp()">
+                        </div>
+                        <div class="hr"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="/Front/Script/index.js"></script> -->
+
+</body>
+
+</html>

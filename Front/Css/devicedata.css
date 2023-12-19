@@ -1,0 +1,61 @@
+body {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    font-size: medium; /* Remove default margin */
+}
+
+.container {
+    background-color: rgba(107, 95, 95, 0.767);
+    border-radius: 10px;
+    margin-top: -34px;
+    overflow-y: auto; /* Add vertical scrollbar if needed */
+    max-height: 65vh;
+    position: relative;
+}
+
+.table {
+    width: 250%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+
+
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px;
+    border: 2px solid #ddd; /* Add border for better styling */
+}
+
+.table th {
+    position: sticky;
+    top: 0;
+   
+    z-index: 1; /* Ensure header stays above content when scrolling */
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.user-info-container{
+  font-family: 'Courier New', Courier, monospace;
+  padding: 2px;
+  color: azure;
+}
+.form-header{
+    margin-bottom: 0em;
+    margin-top: 1rem;
+    color: rgb(220, 133, 20);
+   
+        
+    
+}
+

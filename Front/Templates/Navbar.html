@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="/Front/Css/Sidebar.css" />
+    <link rel="stylesheet" href="/Front/Css/Navbar.css" />
+    <script src="Script/Sidebar.js"></script>
+  </head>
+  
+  <body>
+    <!-- navbar -->
+    <video autoplay muted loop class="myVideo">
+      <source src="/Front/images/Dashboard.mov" type="video/mp4">
+    </video>
+   
+
+    <nav class="navbar">
+      
+      <div class="logo_item">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img src="/Front/images/log.png" alt=""></i>Exafluence
+      </div>
+      <div class="search_bar">
+        <h2>SCMXPERTLITE</h2>
+      </div>
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+        <!-- <i class='bx bx-sun' id="darkLight"></i> -->
+            <a  class="txt" href="/Front/Templates/About.html">About</a>
+            <a href="/Front/Templates/useracc.html">
+              <img src="/Front/images/log.png" alt="" class="profile" />
+            </a>
+      </div>
+    </nav>
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          
+          <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
+          <!-- start -->
+          <li class="item">
+            <div href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Dashboard</span>
+              <i class="bx bx-chevron-right arrow-left"></i>
+            </div>
+          </li>
+        
+          <!-- end -->
+        </ul>
+        <ul class="menu_items">
+          <!-- duplicate these li tag if you want to add or remove navlink only -->
+          <!-- Start -->
+          <li class="item">
+            <a href="/Front/Templates/Myshipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-package"></i>
+              </span>
+              <span class="navlink">My shippment</span>
+            </a>
+          </li>
+          <!-- End -->
+          <li class="item">
+            <a href="/Front/Templates/NewShipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-loader-circle"></i>
+              </span>
+              <span class="navlink">New Shipment</span>
+            </a>
+        </li>
+          <li class="item">
+            <a href="/Front/Templates/DeviceData.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-data"></i>
+              </span>
+              <span class="navlink">Device Data</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <!-- <div class="menu_title menu_setting"></div> -->
+          <li class="item">
+            <a href="/Front/Templates/index.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-log-out-circle"></i>
+              </span>
+              <span class="navlink">Log out</span>
+            </a>
+          </li>
+          
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <!-- <span> Expand</span> -->
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar" onclick="press()">
+            <!-- <span> close</span> -->
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- JavaScript -->
+    <script src="/Front/Script/Sidebar.js"></script>
+  </body>
+</html>
