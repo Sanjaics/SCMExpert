@@ -12,14 +12,14 @@ window.addEventListener('load', () => {
             document.getElementById('EmailError').textContent = 'Invalid email address';
             return false;
         } else {
-            document.getElementById('EmailError').textContent = ''; // Clear error message
+            document.getElementById('EmailError').textContent = ''; 
         }
 
         if (password.length < 8) {
             document.getElementById('userpassword').textContent = 'Passwords must contain at least 8 characters';
             return false;
         } else {
-            document.getElementById('userpassword').textContent = ''; // Clear error message
+            document.getElementById('userpassword').textContent = ''; 
         }
 
         const signInData = {
@@ -46,12 +46,12 @@ window.addEventListener('load', () => {
                 const signin = await response.json();
                 console.log(signin);
 
-                // Store data in local storage
+                // Store in local storage
                 localStorage.setItem('token', signin.token);
                 
                 localStorage.setItem('user_email', signInData.email);
 
-                // Redirect to Dashboard (replace with your actual URL)
+                // Redirect to Dashboard 
                 window.location.href = 'Dashboard.html';
             } else {
                 document.getElementById('userpassword').textContent = 'Password or email is invalid';
@@ -71,11 +71,10 @@ window.addEventListener('load', () => {
     }
 
     //  myFunction();
-
+    
   
     
 });
-
 function myfunction() {
     var x = document.getElementById("password");
     if (x.type === "password") {
@@ -84,3 +83,4 @@ function myfunction() {
       x.type = "password";
     }
   }
+

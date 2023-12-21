@@ -98,6 +98,7 @@
         </div>
     </div>
   </nav>
+  <script src="/Front/Script/Sidebar.js"></script>
 </body>
 
 </html>
@@ -106,9 +107,12 @@
   <section class="form-container">
 
     <form id="shipment-form">
+      <p id="success-message" style="color: rgba(17, 150, 0, 0.808);"></p>
+           <p id="error-message" style="color: red;"></p>
       <h1 class="form-header">New Shipment</h1>
       <div class="form">
         <div class="form-item form-item1  aabbcc">
+          
           <label for="firstname">Shipment Number*</label>
           <input id="shipmentnum" type="number" name="firstname" required />
         </div>
@@ -117,6 +121,7 @@
           <label for="RouteDetails">RouteDetails*</label>
           <select id="routeDetails" name="routeDetails" required>
             <!-- Add your route options here -->
+            <option value="Bangalore-Chennai">Select Route</option>
             <option value="Bangalore-Chennai">Bangalore-Chennai</option>
             <option value="Chennai-Banglore">Chennai-Banglore</option>
             
@@ -131,7 +136,14 @@
 
         <div class="form-item form-item2 aabbcc">
           <label for="phonenumber">Device*</label>
-          <input id="devicedata" type="tel" name="phonenumber" required />
+          <select id="devicedata" type="tel" name="Device" required >
+            <option value="laptop">Select device</option>
+            <option value="laptop">laptop</option>
+            <option value="desktop">desktop</option>
+            
+            <option value="mobile">Mobile </option>
+            <option value="tablet">Tablet</option>
+          </select>
         </div>
         <div class="form-item form-item2 aabbcc">
           <label for="lastname">PhNumber*</label>
@@ -154,7 +166,14 @@
         </div>
         <div class="form-item form-item2 aabbcc">
           <label for="goodstype">GoodsType*</label>
-          <input id="goodstype" type="tel" name="goodstype" required />
+          <select id="goodstype" type="tel" name="goodstype" required >
+            <option value="Bangalore-Chennai">Select Goods</option>
+            <option value="Pharama">Pharama</option>
+            <option value="vaccines">Vaccines</option>
+            
+            <option value="Fish">Fish </option>
+            <option value="Electronics">Electronics</option>
+          </select>
         </div>
 
         <div class="form-item form-item2 aabbcc">
@@ -176,6 +195,7 @@
           <input id="submit" class="btn btn-glow form-btn" type="submit" name="submit" value="Create"
             onsubmit="createShipment()">
           <input id="submit" class="btn btn-glow form-btn" type="reset" value="Clear" onclick="clear()">
+          
         </div>
 
 

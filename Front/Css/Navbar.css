@@ -68,6 +68,14 @@ body{
   box-shadow: 0 0 2px var(--grey-color-light);
   margin: 3px;
 }
+
+li{
+	font-size: max(10pt, .5vmin);
+	line-height: 1.2;
+	color: #0e390e;
+	margin-bottom: 1.0rem;
+}
+
 .logo_item {
   display: flex;
   align-items: center;

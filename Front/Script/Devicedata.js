@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
 
             if (!response.ok) {
-                throw new Error('Failed to fetch data');
-            }
-
+                
+                }
             const data = await response.json();
+            document.getElementById('error-message').innerText = `Error: ${data.detail}`;
             displayDeviceData(data);
         } catch (error) {
             console.error('Error fetching data:', error);

@@ -12,7 +12,7 @@ body {
     background-color: rgba(107, 95, 95, 0.767);
     border-radius: 10px;
     margin-top: -34px;
-    overflow-y: auto; /* Add vertical scrollbar if needed */
+    overflow-y: auto; 
     max-height: 65vh;
     position: relative;
 }

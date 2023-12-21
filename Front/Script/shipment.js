@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const batchId = document.getElementById('batchid').value;
         const shipmentDescription = document.getElementById('shipmentdescription').value;
 
-        // Validate the form data (you can add more specific validations)
+        // Validate the form data
         if (!shipmentNumber || !routeDetails || !device || !phNumber || !ndcNumber || !serialNumber || !containerNum || !goodsType || !expectedDeliveryDate || !deliveryNumber || !batchId || !shipmentDescription) {
             console.error('All fields are required');
             return;
@@ -54,12 +54,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
-                // Handle the response data as needed
-                window.location.reload();
+                document.getElementById('success-message').innerText = ` ${data.message}`;
+                
+                // Display a success message on the page
+                const successMessageElement = document.getElementById('success-message');
+                document.getElementById('success-message').innerText = ` ${data.message}`;
+                successMessageElement.classList.remove('hidden'); // Show the success message
+                // Clear  after 3000 milliseconds
+                setTimeout(() => {
+                    successMessageElement.innerText = '';
+                    successMessageElement.classList.add('hidden'); // Hide the success message
+                    
+                }, 3000);
+                clear();
             } else {
                 const errorData = await response.json();
+                // Print the error detail
                 console.error('Error:', errorData.detail);
+                // Display the error message on the page
+                const errorMessageElement = document.getElementById('error-message');
+                errorMessageElement.innerText = `Error: ${errorData.detail}`;
+                errorMessageElement.classList.remove('hidden'); // Show the error message
             }
 
         } catch (error) {
@@ -73,23 +88,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
         shipmentForm.addEventListener('submit', function (event) {
             event.preventDefault();
             createShipment();
+           
         });
     } else {
         console.error('Shipment form not found');
     }
 
     function clear() {
-        // Select all form elements and reset their values
+        // clear values
         document.getElementById('shipment-form').reset();
     }
-    
+   
     
 });
 document.addEventListener('DOMContentLoaded', function () {
     // Get the current date in the format "YYYY-MM-DD"
     var currentDate = new Date().toISOString().split('T')[0];
    
-    // Set the value and minimum date for the input field
+    // Set date for the input field
     var dateInput = document.getElementById('expecteddeliveryDate');
     dateInput.value = currentDate;
     dateInput.min = currentDate;

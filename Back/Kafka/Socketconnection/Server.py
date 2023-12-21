@@ -46,8 +46,7 @@ while connected:
                 else:
                     continue
 
-            # clientdata = conn.recv(1024).decode(FORMAT)
-            # print("ACKNOWLEDGEMENT RECEIVED FROM CLIENT : " +clientdata)
+           
                        
                                 
         except IOError as e:

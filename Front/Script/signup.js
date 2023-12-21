@@ -12,14 +12,14 @@ window.addEventListener('load', (event) => {
             document.getElementById('mailError').textContent = 'Invalid email address';
             return false;
         } else {
-            document.getElementById('mailError').textContent = ''; // Clear error message
+            document.getElementById('mailError').textContent = ''; 
         }
 
         if (password.length < 8) {
             document.getElementById('passwordError').textContent = 'Passwords must contain at least 8 characters';
             return false;
         } else {
-            document.getElementById('passwordError').textContent = ''; // Clear error message
+            document.getElementById('passwordError').textContent = ''; 
         }
 
         // Password validation
@@ -27,7 +27,7 @@ window.addEventListener('load', (event) => {
             document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
             return false;
         } else {
-            document.getElementById('confirmPasswordError').textContent = ''; // Clear error message
+            document.getElementById('confirmPasswordError').textContent = ''; 
         }
 
         const signUpData = {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,122 +16,136 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <script src="/Front/Script/shipment.js"></script>
 </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <div class="logo_item">
-        <i class="bx bx-menu" id="sidebarOpen"></i>
-        <img src="/Front/images/log.png" alt=""></i>Exafluence
-      </div>
-      <div class="search_bar">
-        <h2>SCMXPERTLITE</h2>
-      </div>
-      <div class="navbar_content">
-        <i class="bi bi-grid"></i>
-           
-            
-            <a  class="txt" href="/Front/Templates/About.html">About</a>
-            <a href="/Front/Templates/useracc.html">
-              <img src="/Front/images/log.png" alt="" class="profile" />
-            </a>
-      </div>
-    </nav>
-    <!-- sidebar -->
-    <nav class="sidebar">
-      <div class="menu_content">
-        <ul class="menu_items">
-          <li class="item">
-            <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
-              <span class="navlink_icon">
-                <i class="bx bx-home-alt"></i>
-              </span>
-              <span class="navlink">Dashboard</span>
-            </a>
-          </li>
-        
-          <!-- end -->
-        </ul>
-        <ul class="menu_items">
-          <li class="item">
-            <a href="/Front/Templates/Myshipment.html" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-package"></i>
-              </span>
-              <span class="navlink">My shippment</span>
-            </a>
-          </li>
-          <!-- End -->
-          <li class="item">
-            <a href="/Front/Templates/NewShipment.html" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-loader-circle"></i>
-              </span>
-              <span class="navlink">New Shipment</span>
-            </a>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <div class="logo_item">
+      <i class="bx bx-menu" id="sidebarOpen"></i>
+      <img src="/Front/images/log.png" alt=""></i>Exafluence
+    </div>
+    <div class="search_bar">
+      <h2>SCMXPERTLITE</h2>
+    </div>
+    <div class="navbar_content">
+      <i class="bi bi-grid"></i>
+
+
+      <a class="txt" href="/Front/Templates/About.html">About</a>
+      <a href="/Front/Templates/useracc.html">
+        <img src="/Front/images/log.png" alt="" class="profile" />
+      </a>
+    </div>
+  </nav>
+  <!-- sidebar -->
+  <nav class="sidebar">
+    <div class="menu_content">
+      <ul class="menu_items">
+        <li class="item">
+          <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
+            <span class="navlink_icon">
+              <i class="bx bx-home-alt"></i>
+            </span>
+            <span class="navlink">Dashboard</span>
+          </a>
         </li>
-          <li class="item">
-            <a href="/Front/Templates/DeviceData.html" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-data"></i>
-              </span>
-              <span class="navlink">Device Data</span>
-            </a>
-          </li>
-        </ul>
-        <ul class="menu_items">
-          <li class="item">
-            <a href="/Front/Templates/index.html" class="nav_link">
-              <span class="navlink_icon">
-                <i class="bx bx-log-out-circle"></i>
-              </span>
-              <span class="navlink">Log out</span>
-            </a>
-          </li>
-          
+      </ul>
+      <ul class="menu_items">
+        <li class="item">
+          <a href="/Front/Templates/Myshipment.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-package"></i>
+            </span>
+            <span class="navlink">My shippment</span>
+          </a>
+        </li>
+        <!-- End -->
+        <li class="item">
+          <a href="/Front/Templates/NewShipment.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-loader-circle"></i>
+            </span>
+            <span class="navlink">New Shipment</span>
+          </a>
+        </li>
+        <li class="item">
+          <a href="/Front/Templates/DeviceData.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-data"></i>
+            </span>
+            <span class="navlink">Device Data</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="menu_items">
+        <li class="item">
+          <a href="/Front/Templates/index.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-log-out-circle"></i>
+            </span>
+            <span class="navlink">Log out</span>
+          </a>
+        </li>
+
         <!-- Sidebar Open / Close -->
         <div class="bottom_content">
           <div class="bottom expand_sidebar">
             <!-- <span> Expand</span> -->
-            <i class='bx bx-log-in' ></i>
+            <i class='bx bx-log-in'></i>
           </div>
           <div class="bottom collapse_sidebar" onclick="press()">
             <!-- <span> close</span> -->
             <i class='bx bx-log-out'></i>
           </div>
         </div>
-      </div>
-    </nav>
-    <!-- JavaScript -->
-    <script src="/Front/Script/Sidebar.js"></script>
-  </body>
-</html>
-   
-	<body>
-     <div class="wrap animate pop">
-        <div class="overlay">
-          <div class="overlay-content animate slide-left delay-2">
-            <h1 class="animate slide-left pop delay-4">About</h1>
-            <p></p>
-            <p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;">SCMXPERT<em></em></p>
-          </div>
-          <div class="image-content animate slide delay-5"></div>
-              <div class="dots animate">
-                <div class="dot animate slide-up delay-6"></div>
-                <div class="dot animate slide-up delay-7"></div>
-                <div class="dot animate slide-up delay-8"></div>
-              </div>
-        </div>
-          <div class="text">
-            <p><img class="inset" src="/Front/images/log.png" alt="" /></p>
-            <p>Apart from providing oxygen for the planet and beauty when they bloom or turn color, Data can provide a significant competitive advantage to organizations when leveraged effectively to solve business problems. Exafluence empowers its customers in their digital transformation journey, by helping them advance up the analytics maturity curve.
-              the planet and beauty when they bloom or turn color, Data can provide a significant competitive advantage to organizations when leveraged effectively to solve business problems. Exafluence empowers its customers in their digital transformation journey, by helping them advance up the analytics maturity curve.
-              <li>Exafluence helps organizations to:</li>
-             <li>Create enterprise data assets</li>
-              <li>Utilize enterprise data assets</li>
-              <li>Provide actionable insights that leads to data-driven decisions.</li>
-            </p>
-          </div>
-      </div>
-		</body>
+    </div>
+  </nav>
+  <!-- JavaScript -->
+  <script src="/Front/Script/Sidebar.js"></script>
 </body>
+
+</html>
+
+<body>
+  <div class="wrap animate pop">
+    <div class="overlay">
+      <div class="overlay-content animate slide-left delay-2">
+        <h1 class="animate slide-left pop delay-4">About</h1>
+        <p></p>
+        <p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;">SCMXPERTLITE<em></em></p>
+      </div>
+      <div class="image-content animate slide delay-5"></div>
+      <div class="dots animate">
+        <div class="dot animate slide-up delay-6"></div>
+        <div class="dot animate slide-up delay-7"></div>
+        <div class="dot animate slide-up delay-8"></div>
+      </div>
+    </div>
+    <div class="text">
+      <p><img class="inset" src="/Front/images/log.png" alt="" /></p>
+      <p>
+        <br><h4>Shipment Management:</h4></br>
+
+        Users can effortlessly enter and manage shipment details through an easy-to-navigate interface.
+        Shipment details are securely stored in MongoDB, ensuring data integrity.
+        
+        <p><br>Real-time Data Stream:</br>
+          SCMXperlite harnesses the power of Kafka to provide a live stream of data, allowing users to monitor their shipments in real time.
+          Quick updates and notifications enable users to respond promptly to changing conditions.</p>
+        
+        <P>Join Us in Simplifying Shipment Management:
+          SCMXperlite is not just a platform; it's a commitment to simplifying the complexities of shipment management. Join us on this journey to enhance productivity, improve decision-making, 
+          and ensure the smooth flow of your logistics operations.</P> 
+        
+        
+        <li>Exafluence helps organizations to:</li>
+        <li>Create enterprise data assets</li>
+        <li>Utilize enterprise data assets</li>
+        <li>Provide actionable insights that leads to data-driven decisions.</li>
+      </p>
+    </div>
+  </div>
+</body>
+</body>
+
 </html>

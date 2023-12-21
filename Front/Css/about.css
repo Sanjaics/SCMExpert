@@ -5,7 +5,7 @@
 }
 body {
 	min-height: 100vh;
-  min-width: none;
+    min-width: none;
 	display: grid;
 	place-items: center;
 	margin: 0;
@@ -20,7 +20,14 @@ h1 {
 	color: white;
 }
 p {
-	font-size: max(10pt, 2.5vmin);
+	font-size: max(10pt, .5vmin);
+	line-height: 1.4;
+	color: #0e390e;
+	margin-bottom: 1.5rem;
+	
+}
+li{
+	font-size: max(10pt, .5vmin);
 	line-height: 1.4;
 	color: #0e390e;
 	margin-bottom: 1.5rem;

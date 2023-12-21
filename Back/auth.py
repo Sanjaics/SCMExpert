@@ -20,6 +20,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="signin")
 
 PASSWORD_HASH = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+#Getting hashpassword,verifypassword
 class Hash:
     def create_user(password: str) -> str:
         return PASSWORD_HASH.hash(password)
@@ -28,7 +29,7 @@ class Hash:
     def verify_password(plain_password: str, hashed_password: str) -> bool:
         return PASSWORD_HASH.verify(plain_password, hashed_password)
 
-
+#Generating token 
 def create_access_token(data: dict, expires_delta: timedelta | None = None):
     to_encode = data.copy()     
     # token expiration time
@@ -37,6 +38,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     else:
         expire = datetime.utcnow() + timedelta(minutes=int(ACCESS_TOKEN_EXPIRE_MINUTES))
     to_encode.update({"exp": expire})
+    #encode the token 
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 
@@ -44,7 +46,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
 #decode token Fun()
 def decode_token(token: str):
     try:
-        # Attempt to decode the provided token
+        #decode the provided token
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         return payload
     except ExpiredSignatureError:

@@ -28,20 +28,14 @@ class Shipment(BaseModel):
     BatchId: str
     ShipmentDescription: str
 
-class forgotpassword(BaseModel):
-    email:EmailStr
-
-class VerifyOtpRequest(BaseModel):
-    otp: str
-
-class resetpassword(BaseModel):
-    token:str
-    newpassword:str
-    confirmpassword:str
-
 class DeviceData(BaseModel):
     Battery_Level: float
     Device_ID: str
     First_Sensor_temperature: float
     Route_From: str
     Route_To: str
+
+class forgotpassword(BaseModel):
+    email: EmailStr
+    new_password: str
+    confirm_password: str
