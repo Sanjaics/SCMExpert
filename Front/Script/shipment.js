@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (response.ok) {
                 const data = await response.json();
-                document.getElementById('success-message').innerText = ` ${data.message}`;
+               
                 
                 // Display a success message on the page
                 const successMessageElement = document.getElementById('success-message');

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // Check if data is an array before iterating
         if (Array.isArray(data)) {
-            // Iterate through the data and append rows to the table
+            // Iterate the data and append rows to the table
             data.forEach(device => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -35,13 +35,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             if (!response.ok) {
                 
-                }
+                document.getElementById('error-message').innerText = `Error: ${data.detail}`;
+                clearAfterDelay(3000);
+            }
             const data = await response.json();
-            document.getElementById('error-message').innerText = `Error: ${data.detail}`;
+           
             displayDeviceData(data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
+
+        function clearAfterDelay(delay) {
+            setTimeout(() => {
+                document.getElementById('message').innerText = '';
+                window.location.href = 'Newshipment.html';
+            }, delay);
+    
+        }
+
     }
 
     // Call the fetchAndDisplayData function when the page loads

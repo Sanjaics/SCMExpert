@@ -1,154 +1,71 @@
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+document.addEventListener('DOMContentLoaded', function () {
 
-function sendResetEmail() {
-  // Validate email format
-  const emailInput = document.getElementById("email");
-  const email = emailInput.value;
+    const updateButton = document.getElementById('updateButton');
+    updateButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('error-message').innerText = '';
+        updatePassword();
+    });
 
-  if (!validateEmail(email)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
+    async function updatePassword() {
+        const newPassword = document.getElementById('new-password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
 
-  // Make an asynchronous request to send reset email
-  fetch("http://127.0.0.1:8000/forgotpassword", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: email,
-    }),
-  })
-    .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+        if (!newPassword || !confirmPassword) {
+            document.getElementById('err-message').innerText = 'please enter the password';
+            return;
+        }
+
+        try {
+            const response = await fetch('http://127.0.0.1:8000/forgotpassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: document.getElementById('email').value,
+                    new_password: newPassword,
+                    confirm_password: confirmPassword,
+                }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+
+                document.getElementById('message').innerText = ` ${data.message}`;
+                clearAfterDelay(3000); // 3000 milliseconds (3 seconds)
+
+
+            } else {
+                const errorData = await response.json();
+                console.error('Error updating password:', errorData);
+                displayError(errorData);
+            }
+        } catch (error) {
+            console.error('Error updating password:', error);
+            displayError({ detail: ['An unexpected error occurred.'] });
+        }
     }
-    return response.json();
-  })
-  .then(data => {
-    // Handle the response from the server
-    console.log(data);
-    alert(data.message);
 
-    // Assuming the server sends a success message, hide reset form and show OTP form
-    document.getElementById("reset-form").style.display = "none";
-    document.getElementById("otp-form").style.display = "block";
-  })
-  .catch(error => {
-    console.error("Fetch error:", error);
-    alert("Error: " + error.message);
-  });
-}
-
-
-
-function updatePassword() {
-  var newPassword = document.getElementById('new-password').value;
-  var confirmPassword = document.getElementById('confirm-password').value;
-
-  if (newPassword !== confirmPassword) {
-      alert("Passwords do not match. Please try again.");
-      return;
-  }
-
-  // Call the updatePassword function
-  handleUpdatePasswordClick();
-}
-
-
-function handleUpdatePasswordClick() {
-  // Store the new password in local storage
-  var newPassword = document.getElementById('new-password').value;
-  localStorage.setItem('newPassword', newPassword);
-
-  // Get the token from wherever you store it
-  var token = "create_access_token";  // Replace with your actual token
-
-  // Make an asynchronous request to reset the password
-  fetch("http://127.0.0.1:8000/resetpassword", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + token,
-    },
-    body: JSON.stringify({
-      new_password: newPassword,
-      confirm_password: confirmPassword,
-    }),
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+    function displayError(errorData) {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerText = `Error: ${errorData.detail.join(', ')}`;
     }
-    return response.json();
-  })
-  .then(data => {
-    // Handle the response from the server
-    console.log(data);
-    alert(data.message);
 
-    // You can redirect the user or perform other actions based on the response
-  })
-  .catch(error => {
-    console.error("Fetch error:", error);
-    alert("Error: " + error.message);
-  });
+    function clearAfterDelay(delay) {
+        setTimeout(() => {
+            document.getElementById('message').innerText = '';
+            window.location.href = 'index.html';
+        }, delay);
+
+    }
+});
+
+function myFunction() {
+    var x = document.getElementById("new-password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
 }
-
-
-
-function verifyOtp() {
-  const otp = document.getElementById("otp").value;
-  const apiUrl = "http://127.0.0.1:8000/verifyotp";
-  const token = localStorage.getItem("access_token");
-
-  const payload = {
-      otp: otp,
-  };
-
-  if (!otp || !token) {
-      alert("OTP or token is missing.");
-      return;
-  }
-
-  fetch(apiUrl, {
-      method: "POST",
-      headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-      },
-      body: JSON.stringify(payload),
-  })
-  .then(response => {
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-  })
-  .then(data => {
-      console.log(data);
-      alert(data.message);
-
-      if (data.success) {
-          document.getElementById("otp-form").style.display = "none";
-          document.getElementById("new-password-form").style.display = "block";
-      }
-  })
-  .catch(error => {
-      console.error("Fetch error:", error);
-      alert("Error: " + error.message);
-  });
-}
-
-
-
-
-
-
-
-
-

@@ -2,8 +2,6 @@ from fastapi import APIRouter, Depends, HTTPException,status,Request,Response
 from fastapi.security import OAuth2PasswordRequestForm
 from Back.auth import get_current_user, create_access_token, Hash, decode_token, oauth2_scheme
 from fastapi.responses import JSONResponse
-import datetime
-from Back.mail import generate_otp,send_verification_email
 from Back.db import users
 from Back.models import UserCreate,forgotpassword
 from fastapi.responses import JSONResponse,RedirectResponse
@@ -12,24 +10,6 @@ OTP_EXPIRATION_MINUTES = 5
 TOKEN_EXPIRATION_MINUTES = 30
 
 router = APIRouter()
-
-
-
-@router.get("/check_authentication", response_model=dict)
-async def check_authentication(current_user: dict = Depends(get_current_user)):
-    if current_user is None:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-    return {"message": "User is authenticated"}
-
-
-
-@router.get("/dashboard", response_model=dict)
-async def get_dashboard(request: Request, exist_user: dict = Depends(get_current_user)):
-    if exist_user is None:
-        return RedirectResponse(url="/index.html")
-
-
-
 
 @router.post("/signup", response_model=dict)
 async def signup(user: UserCreate):
@@ -89,7 +69,7 @@ async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
             "email": user["email"],
             "role": user["role"]
         }
-        
+        print(login_user)
         #create access token after successfull login
         token = create_access_token(data={"sub": user["username"], "email": user["email"]})
         print(token)
@@ -150,7 +130,18 @@ async def reset_password(user_forgot_password: forgotpassword):
         )
 
       
+@router.get("/check_authentication", response_model=dict)
+async def check_authentication(current_user: dict = Depends(get_current_user)):
+    if current_user is None:
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
+    return {"message": "User is authenticated"}
 
+
+
+@router.get("/dashboard", response_model=dict)
+async def get_dashboard(request: Request, exist_user: dict = Depends(get_current_user)):
+    if exist_user is None:
+        return RedirectResponse(url="/index.html")
 
 
 

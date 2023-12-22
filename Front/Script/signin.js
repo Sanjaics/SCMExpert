@@ -44,21 +44,30 @@ window.addEventListener('load', () => {
             // Check if the sign-in was successful
             if (response.ok) {
                 const signin = await response.json();
-                console.log(signin);
 
                 // Store in local storage
                 localStorage.setItem('token', signin.token);
                 
                 localStorage.setItem('user_email', signInData.email);
-
+                
+                document.getElementById('success-message').innerText = `Error: ${signin.message}`;
+                clearAfterDelay(3000);
                 // Redirect to Dashboard 
-                window.location.href = 'Dashboard.html';
+               
             } else {
                 document.getElementById('userpassword').textContent = 'Password or email is invalid';
                 return false;
             }
         } catch (error) {
             console.error('Error during sign-in:', error);
+        }
+
+        function clearAfterDelay(delay) {
+            setTimeout(() => {
+                document.getElementById('success-message').innerText = '';
+                window.location.href = 'Dashboard.html';
+            }, delay);
+    
         }
     }
 
