@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/Front/Css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lf7hx0pAAAAAO-hA6lGJI2P16y8ZUaRLaFUCh5V" async defer></script> -->
+  
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
     <script src="/Front/Script/signin.js"></script>
@@ -56,6 +56,8 @@
                     </form>
                 </div>
                 <div class="sign_up_htm">
+                    <p id="success-message" style="color: rgb(255, 152, 152);"></p>
+                    <p id="password-message" style="color: rgb(255, 152, 152);"></p>
                     <form id="sign_up" autocomplete="off">
                         <div class="group">
                             <label for="user" class="label">Username</label>
@@ -85,7 +87,7 @@
                             <input type="submit" class="button" value="Sign Up" onsubmit= "signUp()">
                              
                         </div>
-                        <div class="hr"></div>
+                        <!-- <div class="hr"></div> -->
                     </form>
                 </div>
             </div>

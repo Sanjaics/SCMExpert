@@ -27,23 +27,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
             // Check if data is an array before iterating
             if (Array.isArray(data)) {
                 // Iterate through the data and append rows to the table
-                data.forEach(shipment => {
+                data.forEach((shipment, index) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                      <td>${shipment['ShipmentNumber']}</td>
-                      <td>${shipment['RouteDetails']}</td>
-                      <td>${shipment['Device']}</td>
-                      <td>${shipment['PoNumber']}</td>
-                      <td>${shipment['NdcNumber']}</td>
-                      <td>${shipment['SerialNumber']}</td>
-                      <td>${shipment['ContainerNum']}</td>
-                      <td>${shipment['GoodsType']}</td>
-                      <td>${shipment['ExpectedDeliveryDate']}</td>
-                      <td>${shipment['DeliveryNumber']}</td>
-                      <td>${shipment['BatchId']}</td>
-                      <td>${shipment['ShipmentDescription']}</td>
-                  `;
-
+                        <td>${index + 1}</td>
+                        <td>${shipment['ShipmentNumber']}</td>
+                        <td>${shipment['RouteDetails']}</td>
+                        <td>${shipment['Device']}</td>
+                        <td>${shipment['PoNumber']}</td>
+                        <td>${shipment['NdcNumber']}</td>
+                        <td>${shipment['SerialNumber']}</td>
+                        <td>${shipment['ContainerNum']}</td>
+                        <td>${shipment['GoodsType']}</td>
+                        <td>${shipment['ExpectedDeliveryDate']}</td>
+                        <td>${shipment['DeliveryNumber']}</td>
+                        <td>${shipment['BatchId']}</td>
+                        <td>${shipment['ShipmentDescription']}</td>
+                    `;
+            
                     tableBody.appendChild(row);
                 });
 
@@ -56,6 +57,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
     }
 
-    // Call the function when the page loads
+    // functioncall when the page loads
     fetchShipmentData();
+    
 });
+
+

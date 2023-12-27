@@ -110,3 +110,4 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.value = currentDate;
     dateInput.min = currentDate;
   });
+

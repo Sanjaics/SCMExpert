@@ -49,7 +49,9 @@ window.addEventListener('load', (event) => {
             // Check if the response status is OK (status code 2xx)
             if (response.ok) {
                 const data = await response.json();
-                console.log(data);
+                document.getElementById('success-message').innerText = ` ${data.message}`;
+              
+
                 // If sign-up is successful, store user data in local storage
                 localStorage.setItem('userData', JSON.stringify({
                     username: username,
@@ -58,9 +60,12 @@ window.addEventListener('load', (event) => {
                 }));
                 console.log('User data stored in local storage');
                 window.location.href = 'index.html'
+                redirect(3000);
+                
             } else {
                 const errorData = await response.json();
-                console.error('Error:', errorData.detail);
+                document.getElementById('password-message').innerText = ` ${errorData.detail}`;
+                redirect(3000);
             }
 
         } catch (error) {
@@ -77,6 +82,15 @@ window.addEventListener('load', (event) => {
         });
     } else {
         console.error('Sign-up form not found');
+    }
+
+    function redirect(delay) {
+        setTimeout(() => {
+            document.getElementById('success-message').innerText = '';
+            document.getElementById('password-message').innerText = '';
+            window.location.href = 'index.html';
+        }, delay);
+
     }
 
    

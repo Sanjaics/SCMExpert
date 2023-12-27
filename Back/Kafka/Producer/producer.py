@@ -11,6 +11,8 @@ load_dotenv()
 bootstrap_servers=os.getenv("bootstrap_servers")
 Host=os.getenv("Host")
 Port=int(os.getenv("Port"))
+topicname=os.getenv("topicname")
+
 
 # Establish socket connection to server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -28,7 +30,7 @@ producer = KafkaProducer(
 def send_message(message):
     while True:
         try:
-            producer.send('device_data', message)
+            producer.send(topicname, message)
             return
         except KafkaTimeoutError:
             print("Failed to send message, retrying in 5 seconds...")

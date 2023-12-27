@@ -1,11 +1,16 @@
-from motor.motor_asyncio import AsyncIOMotorClient,AsyncIOMotorDatabase
-from fastapi import Depends
+
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # MongoDB setup
-MONGO_DB_URL = "mongodb+srv://sanjaiR:SanjaiR@sanjai1.e51bhcy.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URL =os.getenv("MONGO_DB_URL")
 conn = MongoClient(MONGO_DB_URL)
 client = conn
+
 db = client["SCMLITE"]
 users = db["User"]
 shipment_detail = db["Shipments"]

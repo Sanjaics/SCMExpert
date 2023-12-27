@@ -5,15 +5,16 @@ import json
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 bootstrap_servers=os.getenv("bootstrap_servers")
 
 mongouri=os.getenv("MONGO_DB_URL")
-
 conn = MongoClient(mongouri)
-database = conn['SCMLITE']
-collection2 = database['device_data']
+database = conn[os.getenv("database")]
+collection2 = database[os.getenv("collection2")]
+
 topicname=os.getenv("topicname")
 
 consumer = KafkaConsumer(

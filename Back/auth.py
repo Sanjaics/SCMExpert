@@ -1,5 +1,4 @@
 # auth.py
-
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -9,11 +8,18 @@ from fastapi import Request, Depends, Form, HTTPException, status, Cookie, Respo
 from fastapi import HTTPException, status
 from jose import jwt, ExpiredSignatureError, JWTError
 import asyncio
+import os
+from dotenv import load_dotenv
 
 
-SECRET_KEY = "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+# Load environment variables from a .env file
+load_dotenv()
+
+
+# Load environment variables for JWT configuration
+SECRET_KEY=os.getenv("SECRET_KEY")
+ALGORITHM=os.getenv("ALGORITHM")
+ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES")
 
 #token authentication
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="signin")
@@ -21,7 +27,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="signin")
 PASSWORD_HASH = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 #Getting hashpassword,verifypassword
-class Hash:
+class Hashpass:
     def create_user(password: str) -> str:
         return PASSWORD_HASH.hash(password)
 
@@ -63,7 +69,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
         payload = decode_token(token)
         # print(payload)
         if payload and "email" in payload:
-            print("condition satisfied")
+            # print("condition satisfied")
             user_data = users.find_one({"email": payload["email"]})
             # print(user_data)
             if user_data and "username" in user_data:
@@ -80,14 +86,11 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
 
 
-
-
-
-
+#authenticating user 
 async def authenticate_user(email: str, password: str):
     loop = asyncio.get_event_loop()
     user = await loop.run_in_executor(None, lambda: users.find_one({"email": email}))
-    if not user or not Hash.verify_password(password, user['password']):
+    if not user or not Hashpass.verify_password(password, user['password']):
         return False
     return user
 

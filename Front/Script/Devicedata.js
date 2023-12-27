@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 clearAfterDelay(3000);
             }
             const data = await response.json();
-           
             displayDeviceData(data);
         } catch (error) {
             console.error('Error fetching data:', error);

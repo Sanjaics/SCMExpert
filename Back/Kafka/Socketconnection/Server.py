@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 PORT = int(os.getenv("Port"))
-SERVER = socket.gethostbyname(socket.gethostname())
+SERVER = socket.gethostbyname(socket.gethostname()) #get Ip addr
 print(SERVER)
 ADDR = ("", PORT)
 FORMAT = 'utf-8'
@@ -19,7 +19,8 @@ DISCONNECT_MESSAGE = "!DISCONNECT"
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("socket created")
 
-server.bind(ADDR)    # bind this socket to the address we configured earlier
+# bind this socket to the address we configured earlier
+server.bind(ADDR)    
 server.listen(2)
 print(f"[LISTENING] Server is listening on {SERVER}")
 conn, addr = server.accept()
@@ -39,7 +40,8 @@ while connected:
                         "Route_From":routefrom,
                         "Route_To":routeto
                         }
-                    userdata = (json.dumps(data, indent=1)).encode(FORMAT)
+                     # Convert dictionary to JSON format and encode it
+                    userdata = (json.dumps(data, indent=1)).encode(FORMAT)  # Convert dictionary to JSON format and encode it
                     conn.send(userdata)
                     print(userdata)
                     time.sleep(10)

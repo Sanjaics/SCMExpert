@@ -50,12 +50,12 @@ window.addEventListener('load', () => {
                 
                 localStorage.setItem('user_email', signInData.email);
                 
-                document.getElementById('success-message').innerText = `Error: ${signin.message}`;
+                document.getElementById('success-message').innerText = `Success: ${signin.message}`;
                 clearAfterDelay(3000);
                 // Redirect to Dashboard 
                
             } else {
-                document.getElementById('userpassword').textContent = 'Password or email is invalid';
+                document.getElementById('userpassword').innerText = ` ${errorData.detail}`;
                 return false;
             }
         } catch (error) {

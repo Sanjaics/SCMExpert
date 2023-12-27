@@ -5,7 +5,10 @@ from Back.auth import get_current_user
 from fastapi.responses import JSONResponse
 from Back.models import Shipment
 from Back.db import shipment_detail
+from dotenv import load_dotenv
 
+
+load_dotenv()
 
 
 

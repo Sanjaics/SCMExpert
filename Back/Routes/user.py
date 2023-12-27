@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException,status,Request,Response
 from fastapi.security import OAuth2PasswordRequestForm
-from Back.auth import get_current_user, create_access_token, Hash, decode_token, oauth2_scheme
+from Back.auth import get_current_user, create_access_token, Hashpass, decode_token, oauth2_scheme
 from fastapi.responses import JSONResponse
 from Back.db import users
 from Back.models import UserCreate,forgotpassword
@@ -36,7 +36,7 @@ async def signup(user: UserCreate):
                 detail="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
             )
 
-        hashed_password = Hash.create_user(user.password)
+        hashed_password = Hashpass.create_user(user.password)
         new_user = {"email": user.email, "username": user.username, "password": hashed_password,
                     "role":user.role}
         users.insert_one(new_user)
@@ -61,7 +61,7 @@ async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
         if user is None:
             raise HTTPException(status_code=400, detail="User not found")
 
-        if not Hash.verify_password(form_data.password, user["password"]):
+        if not Hashpass.verify_password(form_data.password, user["password"]):
             raise HTTPException(status_code=400, detail="Incorrect Password")
 
         login_user = {
@@ -113,7 +113,7 @@ async def reset_password(user_forgot_password: forgotpassword):
                 detail="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
             )
 
-        hashed_password = Hash.create_user(user_forgot_password.new_password)
+        hashed_password = Hashpass.create_user(user_forgot_password.new_password)
 
         # Update the user's password in the database
         result = users.update_one(
@@ -137,11 +137,6 @@ async def check_authentication(current_user: dict = Depends(get_current_user)):
     return {"message": "User is authenticated"}
 
 
-
-@router.get("/dashboard", response_model=dict)
-async def get_dashboard(request: Request, exist_user: dict = Depends(get_current_user)):
-    if exist_user is None:
-        return RedirectResponse(url="/index.html")
 
 
 

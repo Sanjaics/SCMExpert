@@ -84,7 +84,7 @@ body::after {
     position: absolute;
     top: -35px;
     left: 50%;
-    background: url(/Front/images/log.png) white;
+    background: url(/Front/images/acc.png) rgb(255, 42, 42);
     transform: translate(-50%, 0);
     background-size: cover;
     background-repeat: no-repeat;

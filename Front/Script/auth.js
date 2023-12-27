@@ -35,9 +35,6 @@ async function redirectToSignIn() {
 window.addEventListener("load", async () => {
     // Redirect to sign-in page if not authenticated
     await redirectToSignIn();
-
-    // If authenticated, redirect to the dashboard
-    
     if (isAuthenticated) {
         window.location.href = 'dashboard.html';
     }

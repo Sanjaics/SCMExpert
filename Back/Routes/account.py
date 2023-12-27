@@ -5,8 +5,6 @@ from Back.db import users
 from fastapi.responses import JSONResponse
 from Back.models import UserCreate
 
-
-
 router = APIRouter()
 
 
