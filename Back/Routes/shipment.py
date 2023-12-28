@@ -14,6 +14,7 @@ load_dotenv()
 
 router = APIRouter()
 
+#create_shipment router function
 @router.post("/Create_shipment", response_model=dict)
 async def shipment(request: Request, ship:Shipment,exist_user: dict = Depends(get_current_user)):
         print("user_exist",exist_user)
@@ -51,7 +52,7 @@ async def shipment(request: Request, ship:Shipment,exist_user: dict = Depends(ge
 
 
 
-
+#myshipment router function
 @router.get("/myshipment", response_model=list)
 async def myshipment(request: Request, exist_user: dict = Depends(get_current_user)):
     try:

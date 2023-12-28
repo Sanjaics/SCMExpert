@@ -4,7 +4,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from Back.db import users
-from fastapi import Request, Depends, Form, HTTPException, status, Cookie, Response
+from fastapi import Request, Depends,HTTPException, status, Cookie, Response
 from fastapi import HTTPException, status
 from jose import jwt, ExpiredSignatureError, JWTError
 import asyncio
@@ -30,8 +30,7 @@ PASSWORD_HASH = CryptContext(schemes=["bcrypt"], deprecated="auto")
 class Hashpass:
     def create_user(password: str) -> str:
         return PASSWORD_HASH.hash(password)
-
-
+    
     def verify_password(plain_password: str, hashed_password: str) -> bool:
         return PASSWORD_HASH.verify(plain_password, hashed_password)
 
@@ -49,7 +48,7 @@ def create_access_token(data: dict, expires_delta: timedelta | None = None):
     return encoded_jwt
 
 
-#decode token Fun()
+#decode token Function
 def decode_token(token: str):
     try:
         #decode the provided token
@@ -64,17 +63,12 @@ def decode_token(token: str):
 
 #Get user to access jwt
 def get_current_user(token: str = Depends(oauth2_scheme)):
-    # print(f"Received token: {token}")
     try:
         payload = decode_token(token)
-        # print(payload)
         if payload and "email" in payload:
-            # print("condition satisfied")
             user_data = users.find_one({"email": payload["email"]})
-            # print(user_data)
             if user_data and "username" in user_data:
                 return {"username": user_data["username"], "email": payload["email"],"role":user_data["role"]}
-            # print(user_data)
     except JWTError as e:
       if "ExpiredSignatureError" in str(e):
             raise HTTPException(
@@ -82,7 +76,6 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
                 detail="Token has expired",
                 headers={"WWW-Authenticate": "Bearer"},
             )
-
     raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
 
 

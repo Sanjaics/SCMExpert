@@ -11,12 +11,12 @@ TOKEN_EXPIRATION_MINUTES = 30
 
 router = APIRouter()
 
+#signup post router function
 @router.post("/signup", response_model=dict)
 async def signup(user: UserCreate):
     try:
         #check user is already exist
         existing_user = users.find_one({"email": user.email})
-
         if existing_user:
             raise HTTPException(status_code=400, detail="Email already registered")
 
@@ -33,7 +33,7 @@ async def signup(user: UserCreate):
         ):
             raise HTTPException(
                 status_code=400,
-                detail="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
+                detail="Password must be at least 8 characters long ,one uppercase letter, one lowercase letter, one digit, and one special character."
             )
 
         hashed_password = Hashpass.create_user(user.password)
@@ -52,7 +52,7 @@ async def signup(user: UserCreate):
         )
 
 
-
+#signin post router function
 @router.post("/signin")
 async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
     try:
@@ -89,6 +89,8 @@ async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
             status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
+#forgotpassword post router function
+
 @router.post("/forgotpassword", response_class=JSONResponse)
 async def reset_password(user_forgot_password: forgotpassword):
     try:
@@ -110,7 +112,7 @@ async def reset_password(user_forgot_password: forgotpassword):
         ):
             raise HTTPException(
                 status_code=400,
-                detail="Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character."
+                detail="Password must be at least 8 characters long,one uppercase letter, one lowercase letter, one digit, and one special character."
             )
 
         hashed_password = Hashpass.create_user(user_forgot_password.new_password)
@@ -129,14 +131,12 @@ async def reset_password(user_forgot_password: forgotpassword):
             status_code=500, detail="Internal Server Error"
         )
 
-      
+#check_authentication get router function
 @router.get("/check_authentication", response_model=dict)
 async def check_authentication(current_user: dict = Depends(get_current_user)):
     if current_user is None:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
     return {"message": "User is authenticated"}
-
-
 
 
 

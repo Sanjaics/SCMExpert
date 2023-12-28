@@ -21,18 +21,17 @@ async function checkAuthentication() {
     }
 }
 
-// Function to redirect to the sign-in page if not authenticated
-async function redirectToSignIn() {
-    let isAuthenticated = await checkAuthentication();
-
-    if (!isAuthenticated) {
-        // Redirect to the sign-in page
-        window.location.href = 'index.html';
-    }
-}
 
 // Execute the authentication check on page load
 window.addEventListener("load", async () => {
+    // Function to redirect to the sign-in page if not authenticated
+    async function redirectToSignIn() {
+    let isAuthenticated = await checkAuthentication();
+         if (!isAuthenticated) {
+            // Redirect to the sign-in page
+            window.location.href = 'index.html';
+        }
+    }
     // Redirect to sign-in page if not authenticated
     await redirectToSignIn();
     if (isAuthenticated) {
