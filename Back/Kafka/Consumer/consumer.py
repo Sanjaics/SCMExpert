@@ -23,6 +23,7 @@ consumer = KafkaConsumer(
      group_id='my-group',
      api_version=(0, 11, 5),
      value_deserializer=lambda x: loads(x.decode('utf-8')))
+
 for message in consumer:
     try:
         data = json.loads(message.value)

@@ -16,5 +16,10 @@ users = db["User"]
 shipment_detail = db["Shipments"]
 verification_collection = db["verification_data"]
 Device_data=db["device_data"]
+feedback_collection = db["feedback_data"]
+
+
+
+# MongoDB setup
 
 

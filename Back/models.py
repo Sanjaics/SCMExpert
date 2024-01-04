@@ -39,3 +39,7 @@ class forgotpassword(BaseModel):
     email: EmailStr
     new_password: str
     confirm_password: str
+
+class FeedbackCreate(BaseModel):
+    feedback_text: str
+    rating: int

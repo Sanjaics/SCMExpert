@@ -70,5 +70,5 @@ async def myshipment(request: Request, exist_user: dict = Depends(get_current_us
     except HTTPException as http_error:
         if http_error.detail == "Not authenticated":
             raise HTTPException(status_code=400, detail=http_error.detail)
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")

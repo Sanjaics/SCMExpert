@@ -16,6 +16,7 @@ async def devicedata(request: Request, exist_user: dict = Depends(get_current_us
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
         elif exist_user['role'] != 'admin':
             raise HTTPException(status_code=401, detail="Admins only Authorised")
+        #fetch devicedata from the database
         device_streamdata = list(Device_data.find({}, {"_id": 0}))
 
         if not device_streamdata:

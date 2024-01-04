@@ -8,21 +8,30 @@
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
   <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
   <!-- <link rel="stylesheet" href="/Front/Css/Sidebar.css" /> -->
-  <link rel="stylesheet" href="/Front/Css/Navbar.css" />
-  <link rel="stylesheet" href="/Front/Css/useracc.css">
-  <script src="https://code.jquery.com/jquery-3.7.1.slim.js"
-    integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
   <script src="/Front/Script/access.js"></script>
+  
+  <link rel="stylesheet" href="/Front/Css/feedback.css">
+    <script src="/Front/Script/feedback.js"></script>
+    <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+  
+    <link rel="stylesheet" href="/Front/Css/Navbar.css" />
+    <link rel="stylesheet" href="/Front/Css/Dashboard.css">
+    <script src="/Front/Script/auth.js"></script>
+    
   <title>Document</title>
 </head>
 
 <body>
   <!-- navbar -->
+
   <video autoplay muted loop class="myVideo">
     <source src="/Front/images/Dashboard.mov" type="video/mp4">
 
   </video>
-<nav class="navbar">
+
+
+  <nav class="navbar">
     <div class="logo_item">
       <i class="bx bx-menu" id="sidebarOpen"></i>
       <img src="/Front/images/log.png" alt=""></i>Exafluence
@@ -32,9 +41,7 @@
     </div>
     <div class="navbar_content">
       <i class="bi bi-grid"></i>
-      <!-- <i class='bx bx-sun' id="darkLight"></i> -->
       <a class="txt" href="/Front/Templates/About.html">About</a>
-      <a class="txt" id="Displayfeedback" href="/Front/Templates/Displayfeedback.html">Displayfeedback</a>
       <a href="/Front/Templates/useracc.html">
         <img src="/Front/images/acc.png" alt="" class="profile" />
       </a>
@@ -43,29 +50,57 @@
 
   <section>
     <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
-    <div class="container">
-      <div class="card">
-        <div class="card-header"></div>
-        <div class="card-body">
-          <div class="inner">
-            <div style="font-size: 18px; ">
-              <h4>Username: <span id="usernameDisplay"></span></h4>
-              <h4>Email: <span id="emailDisplay"></span></h4>
-              <h4>Role: <span id="roleDisplay"></span></h4>
-            </div>
 
+    <section>
+      <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+  
+     
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    
+        <form class="container">
+            <h1 class="heading">Give Feedback</h1>
+            <p class="para">Share Your Experience About SCMXPERTLITE ?</p>
+    
+            <div class="feedback-level" id="ratingContainer">
+              <div class="level" id="rate" onclick="setRating(1)">
+                  <i class="lar la-sad-tear"></i>
+              </div>
+              <div class="level"  id="rate" onclick="setRating(2)">
+                  <i class="las la-frown"></i>
+              </div>
+              <div class="level" id="rate" onclick="setRating(3)">
+                  <i class="lar la-meh"></i>
+              </div>
+              <div class="level"  id="rate" onclick="setRating(4)">
+                  <i class="lar la-smile"></i>
+              </div>
+              <div class="level"   id="rate" onclick="setRating(5)">
+                  <i class="lar la-grin"></i>
+              </div>
           </div>
-        </div>
-      </div>
-    </div>
-    <script src="/Front/Script/useracc.js"></script>
-
-    </div>
+    
+            <div class="feedback-msg">
+                <p class="para">
+                    Reasons Behind Your Rating?
+                </p>
+                <textarea name="" id="feedbackText" required></textarea>
+            </div>
+    
+            <div class="agreement">
+            </div>
+    
+            <div class="buttons">
+                <a href="javascript:submitFeedback()">Submit</a>
+                <button onclick="clear()">Cancel</button>
+            </div>
+        </form>  
+    
+   
+    
   </section>
-<!-- sidebar -->
+  <!-- sidebar -->
   <nav class="sidebar">
-    <div class="menu_content">
-      <ul class="menu_items">
+     <ul class="menu_items">
         <li class="item">
           <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
             <span class="navlink_icon">
@@ -83,7 +118,7 @@
             <span class="navlink_icon">
               <i class="bx bx-package"></i>
             </span>
-            <span class="navlink">My shippment</span>
+            <span class="navlink">My shipment</span>
           </a>
         </li>
         <!-- End -->
@@ -95,7 +130,7 @@
             <span class="navlink">New Shipment</span>
           </a>
         </li>
-        <li class="item" id="access_role_nav">
+        <li class="item"  id="access_role_nav">
           <a href="/Front/Templates/DeviceData.html" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-data"></i>
@@ -133,14 +168,80 @@
             <i class='bx bx-log-out'></i>
           </div>
         </div>
-    </div>
+    
 
   </nav>
-
-
-  <!-- JavaScript -->
+   <!-- JavaScript -->
   <script src="/Front/Script/Sidebar.js"></script>
 
 </body>
 
+
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

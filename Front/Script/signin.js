@@ -12,14 +12,14 @@ window.addEventListener('load', () => {
             document.getElementById('EmailError').textContent = 'Invalid email address';
             return false;
         } else {
-            document.getElementById('EmailError').textContent = ''; 
+            document.getElementById('EmailError').textContent = '';
         }
 
         if (password.length < 8) {
             document.getElementById('userpassword').textContent = 'Passwords must contain at least 8 characters';
             return false;
         } else {
-            document.getElementById('userpassword').textContent = ''; 
+            document.getElementById('userpassword').textContent = '';
         }
 
         const signInData = {
@@ -47,13 +47,14 @@ window.addEventListener('load', () => {
 
                 // Store in local storage
                 localStorage.setItem('token', signin.token);
-                
-                localStorage.setItem('user_email', signInData.email);
-                
+                sessionStorage.setItem("email", signin.email);
+                sessionStorage.setItem("username", signin.username);
+                sessionStorage.setItem("role", signin.role);
+
                 document.getElementById('success-message').innerText = `Success: ${signin.message}`;
                 clearAfterDelay(3000);
                 // Redirect to Dashboard 
-               
+
             } else {
                 document.getElementById('userpassword').innerText = ` ${errorData.detail}`;
                 return false;
@@ -67,7 +68,7 @@ window.addEventListener('load', () => {
                 document.getElementById('success-message').innerText = '';
                 window.location.href = 'Dashboard.html';
             }, delay);
-    
+
         }
     }
 
@@ -79,17 +80,16 @@ window.addEventListener('load', () => {
         console.error('Sign-in form not found');
     }
 
-    //  myFunction();
-    
-  
-    
+    myFunction();
 });
+
+//function for showpassword
 function myfunction() {
     var x = document.getElementById("password");
     if (x.type === "password") {
-      x.type = "text";
+        x.type = "text";
     } else {
-      x.type = "password";
+        x.type = "password";
     }
-  }
+}
 

@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+  <script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+  <!-- <link rel="stylesheet" href="/Front/Css/Sidebar.css" /> -->
+  <link rel="stylesheet" href="/Front/Css/Navbar.css" />
+  <link rel="stylesheet" href="/Front/Css/Displayfeedback.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  <script src="/Front/Script/access.js"></script>
+  <title>Document</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="logo_item">
+        <i class="bx bx-menu" id="sidebarOpen"></i>
+        <img src="/Front/images/log.png" alt=""></i>Exafluence
+      </div>
+      <div class="search_bar">
+        <h2>SCMXPERTLITE</h2>
+      </div>
+      <div class="navbar_content">
+        <i class="bi bi-grid"></i>
+        <!-- <i class='bx bx-sun' id="darkLight"></i> -->
+            <a  class="txt" href="/Front/Templates/About.html">About</a>
+       
+         <a href="/Front/Templates/useracc.html">
+          <img src="/Front/images/acc.png" alt="" class="profile" />
+         </a>
+      </div>
+    </nav>
+   
+     <section>
+     <body>
+          <section>
+         <div class="container">
+                  <div class="feedback-card">
+                      <!-- Feedback card content goes here -->
+                      <h1 class="form-header">Feedback List</h1>
+                      <p id="error-message" style="color: red;"></p>
+                  </div>
+                  
+                  <div class="feedback-list" id="ratingContainer">
+                      <!-- Feedback cards will be dynamically added here -->
+                  </div>
+              </div>
+              <script src="/Front/Script/feedback.js"></script>
+          </section>
+      </body>
+    </section>
+    <!-- sidebar -->
+    <nav class="sidebar">
+      <div class="menu_content">
+        <ul class="menu_items">
+          <li class="item">
+            <a href="/Front/Templates/Dashboard.html" class="nav_link submenu_item">
+              <span class="navlink_icon">
+                <i class="bx bx-home-alt"></i>
+              </span>
+              <span class="navlink">Dashboard</span>
+            </a>
+          </li>
+        
+          <!-- end -->
+        </ul>
+        <ul class="menu_items">
+          <li class="item">
+            <a href="/Front/Templates/Myshipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-package"></i>
+              </span>
+              <span class="navlink">My shippment</span>
+            </a>
+          </li>
+          <!-- End -->
+          <li class="item">
+            <a href="/Front/Templates/NewShipment.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-loader-circle"></i>
+              </span>
+              <span class="navlink">New Shipment</span>
+            </a>
+        </li>
+          <li class="item" id="access_role_nav">
+            <a href="/Front/Templates/DeviceData.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-data"></i>
+              </span>
+              <span class="navlink">Device Data</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu_items">
+          <!-- <div class="menu_title menu_setting"></div> -->
+          <li class="item">
+            <a href="/Front/Templates/index.html" class="nav_link">
+              <span class="navlink_icon">
+                <i class="bx bx-log-out-circle"></i>
+              </span>
+              <span class="navlink">Log out</span>
+            </a>
+          </li>
+          
+        <!-- Sidebar Open / Close -->
+        <div class="bottom_content">
+          <div class="bottom expand_sidebar">
+            <!-- <span> Expand</span> -->
+            <i class='bx bx-log-in' ></i>
+          </div>
+          <div class="bottom collapse_sidebar" onclick="">
+            <!-- <span> close</span> -->
+            <i class='bx bx-log-out'></i>
+          </div>
+        </div>
+      </div>
+      
+    </nav>
+
+    
+    <!-- JavaScript -->
+    <script src="/Front/Script/Sidebar.js"></script>
+    
+  </body>
+</html>
+

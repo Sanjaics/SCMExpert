@@ -7,7 +7,6 @@ async function checkAuthentication() {
                 'Authorization': 'Bearer ' + localStorage.getItem('token'),
             },
         });
-
         if (response.ok) {
             // User is authenticated
             return true;

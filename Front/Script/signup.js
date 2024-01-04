@@ -59,7 +59,6 @@ window.addEventListener('load', (event) => {
                     status: 'registered'
                 }));
                 console.log('User data stored in local storage');
-                window.location.href = 'index.html'
                 redirect(3000);
                 
             } else {
@@ -92,8 +91,6 @@ window.addEventListener('load', (event) => {
         }, delay);
 
     }
-
-   
 });
 
 

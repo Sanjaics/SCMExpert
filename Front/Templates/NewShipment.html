@@ -10,6 +10,8 @@
   <script src="/Front/Script/auth.js"></script>
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <script src="/Front/Script/shipment.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+  <script src="/Front/Script/access.js"></script>
 </head>
 
 <body>
@@ -65,12 +67,20 @@
             <span class="navlink">New Shipment</span>
           </a>
         </li>
-        <li class="item">
-          <a href="/Front/Templates/DeviceData.html" class="nav_link">
+        <li class="item" id="access_role_nav">
+          <a href="/Front/Templates/DeviceData.html" id="deviceDataButton" class="nav_link">
             <span class="navlink_icon">
               <i class="bx bx-data"></i>
             </span>
-            <span class="navlink">Device Data</span>
+            <span class="navlink" id="deviceDataButton">Device Data</span>
+          </a>
+        </li>
+        <li class="item" id="access_rolefeedback">
+          <a href="/Front/Templates/feedback.html" class="nav_link">
+            <span class="navlink_icon">
+              <i class="bx bx-receipt"></i>
+            </span>
+            <span class="navlink">Feedback</span>
           </a>
         </li>
       </ul>
@@ -109,6 +119,7 @@
     <form id="shipment-form">
       <p id="success-message" style="color: rgba(17, 150, 0, 0.808);"></p>
            <p id="error-message" style="color: red;"></p>
+         
       <h1 class="form-header">New Shipment</h1>
       <div class="form">
         <div class="form-item form-item1  aabbcc">

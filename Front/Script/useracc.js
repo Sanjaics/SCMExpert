@@ -31,6 +31,7 @@ window.addEventListener('load', async () => {
         }
 
         const userData = await response.json();
+        console.log(userData);
 
         // Display user information
         const userEmailElement = document.getElementById('emailDisplay');

@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
 
             if (!response.ok) {
-                
                 document.getElementById('error-message').innerText = `Error: ${data.detail}`;
                 clearAfterDelay(3000);
             }
@@ -47,7 +46,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         function clearAfterDelay(delay) {
             setTimeout(() => {
                 document.getElementById('message').innerText = '';
-                window.location.href = 'Newshipment.html';
             }, delay);
     
         }

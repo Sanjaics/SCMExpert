@@ -4,10 +4,10 @@ from Back.auth import get_current_user, create_access_token, Hashpass, decode_to
 from fastapi.responses import JSONResponse
 from Back.db import users
 from Back.models import UserCreate,forgotpassword
-from fastapi.responses import JSONResponse,RedirectResponse
+from fastapi.responses import JSONResponse
 
-OTP_EXPIRATION_MINUTES = 5
-TOKEN_EXPIRATION_MINUTES = 30
+
+
 
 router = APIRouter()
 
@@ -33,7 +33,7 @@ async def signup(user: UserCreate):
         ):
             raise HTTPException(
                 status_code=400,
-                detail="Password must be at least 8 characters long ,one uppercase letter, one lowercase letter, one digit, and one special character."
+                detail="Password must be at least 8 characters long ,1 uppercase,1 lowercase , 1 digit,1 special character."
             )
 
         hashed_password = Hashpass.create_user(user.password)
@@ -69,11 +69,9 @@ async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
             "email": user["email"],
             "role": user["role"]
         }
-        print(login_user)
         #create access token after successfull login
-        token = create_access_token(data={"sub": user["username"], "email": user["email"]})
-        print(token)
-        response = JSONResponse(content={"message": "Signin successful","token":token })
+        token = create_access_token(data={"sub": user["username"], "email": user["email"],"role" : user["role"]})
+        response = JSONResponse(content={"message": "Signin successful","token":token ,"role":login_user["role"], "username": login_user["username"], "email": login_user["email"]})
         return response
 
     except HTTPException as http_error:
@@ -90,7 +88,6 @@ async def signin(form_data: OAuth2PasswordRequestForm = Depends()):
 
 
 #forgotpassword post router function
-
 @router.post("/forgotpassword", response_class=JSONResponse)
 async def reset_password(user_forgot_password: forgotpassword):
     try:
