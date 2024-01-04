@@ -22,7 +22,6 @@ async function submitFeedback() {
             alert('Please provide a rating before submitting.');
             return;
         }
-
         const feedbackData = {
             feedback_text: feedbackText,
             rating: selectedRating,

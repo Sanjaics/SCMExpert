@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let searchQuery = event.target.value.toLowerCase();
 
         let allDeviceIdCells = document.querySelectorAll('.Device_ID');
-
         allDeviceIdCells.forEach(cell => {
             const currentName = cell.textContent.toLowerCase();
 

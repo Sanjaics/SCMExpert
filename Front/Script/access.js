@@ -1,7 +1,5 @@
 $( document ).ready(function() {
-   
-
-        if(sessionStorage.getItem("role") == "admin")
+    if(sessionStorage.getItem("role") == "admin")
         {
             $("#access_role").hide();
             $("#access_rolefeedback").hide();

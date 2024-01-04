@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             console.error('Error fetching data:', error);
         }
     }
-
     // functioncall when the page loads
     fetchShipmentData();
     

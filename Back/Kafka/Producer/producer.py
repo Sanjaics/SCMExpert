@@ -13,7 +13,6 @@ Host=os.getenv("Host")
 Port=int(os.getenv("Port"))
 topicname=os.getenv("topicname")
 
-
 # Establish socket connection to server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.connect((Host, Port))

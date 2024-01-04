@@ -15,7 +15,6 @@ from dotenv import load_dotenv
 # Load environment variables from a .env file
 load_dotenv()
 
-
 # Load environment variables for JWT configuration
 SECRET_KEY=os.getenv("SECRET_KEY")
 ALGORITHM=os.getenv("ALGORITHM")

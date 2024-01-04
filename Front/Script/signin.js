@@ -83,6 +83,7 @@ window.addEventListener('load', () => {
     myFunction();
 });
 
+
 //function for showpassword
 function myfunction() {
     var x = document.getElementById("password");

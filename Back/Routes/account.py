@@ -7,7 +7,6 @@ from Back.models import UserCreate
 
 router = APIRouter()
 
-
 @router.get("/myaccount", response_model=dict)
 async def myaccount(request: Request, current_user: dict = Depends(get_current_user)):
     try:

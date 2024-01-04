@@ -42,6 +42,7 @@ async def signup(user: UserCreate):
         users.insert_one(new_user)
 
         return {"message": "Email Registered Successfully"} 
+    
     except HTTPException as http_error:
         raise http_error
     except Exception as e:

@@ -28,6 +28,7 @@ class Shipment(BaseModel):
     BatchId: str
     ShipmentDescription: str
 
+
 class DeviceData(BaseModel):
     Battery_Level: float
     Device_ID: str

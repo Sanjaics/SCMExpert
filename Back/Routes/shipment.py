@@ -10,8 +10,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
-
 router = APIRouter()
 
 #create_shipment router function

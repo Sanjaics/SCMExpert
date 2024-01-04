@@ -14,6 +14,7 @@ async def create_feedback(feedback_data: FeedbackCreate,current_user: dict = Dep
         if current_user is None:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
 
+        
         # Store feedback in the database
         feedback = {
             "user_email": current_user["email"],

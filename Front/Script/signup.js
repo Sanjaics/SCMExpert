@@ -93,7 +93,6 @@ window.addEventListener('load', (event) => {
     }
 });
 
-
 function myFunction() {
     var x = document.getElementById("upassword");
     if (x.type === "password") {
