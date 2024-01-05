@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${index + 1}</td>
+                        <td>${shipment['email']}</td>
                         <td>${shipment['ShipmentNumber']}</td>
                         <td>${shipment['RouteDetails']}</td>
                         <td>${shipment['Device']}</td>

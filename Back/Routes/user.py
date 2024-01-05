@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException,status,Request,Response
 from fastapi.security import OAuth2PasswordRequestForm
 from Back.auth import get_current_user, create_access_token, Hashpass, decode_token, oauth2_scheme
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse,RedirectResponse
 from Back.db import users
 from Back.models import UserCreate,forgotpassword
 from fastapi.responses import JSONResponse

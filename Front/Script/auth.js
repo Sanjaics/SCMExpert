@@ -28,7 +28,7 @@ window.addEventListener("load", async () => {
     let isAuthenticated = await checkAuthentication();
          if (!isAuthenticated) {
             // Redirect to the sign-in page
-            window.location.href = 'index.html';
+            window.location.href = '/Front/index.html';
         }
     }
     // Redirect to sign-in page if not authenticated

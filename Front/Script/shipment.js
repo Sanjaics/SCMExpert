@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // Validate the form data
         if (shipmentNumber.length < 8 || !routeDetails || !device || !phNumber || !ndcNumber || !serialNumber || !containerNum || !goodsType || !expectedDeliveryDate || !deliveryNumber || !batchId || !shipmentDescription) {
-            document.getElementById('error-message').textContent= "Check inputfields and Shippment Number contains 8 digits";
+            document.getElementById('error-message').textContent= "Check inputfields and Shippment Number contains atleast 8 digits";
             return;
         }
         else{
@@ -90,7 +90,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
             shipmentForm.addEventListener('submit', function (event) {
                 event.preventDefault();
                 createShipment();
-            
             });
         } else {
             console.error('Shipment form not found');
@@ -101,6 +100,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('shipment-form').reset();
         }
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     // current date in the format "YYYY-MM-DD"
     var currentDate = new Date().toISOString().split('T')[0];

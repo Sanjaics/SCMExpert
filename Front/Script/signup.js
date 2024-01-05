@@ -91,6 +91,8 @@ window.addEventListener('load', (event) => {
         }, delay);
 
     }
+
+    myFunction();
 });
 
 function myFunction() {

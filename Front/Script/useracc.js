@@ -22,7 +22,7 @@ window.addEventListener('load', async () => {
         if (response.status === 401) {
             //Unauthorized, redirect to the login page or handle accordingly
             console.error('User not authenticated. Redirecting to the login page.');
-            window.location.href = 'index.html';
+            window.location.href = '/Front/index.html';
             return;
         }
 

@@ -15,39 +15,41 @@ router = APIRouter()
 #create_shipment router function
 @router.post("/Create_shipment", response_model=dict)
 async def shipment(request: Request, ship:Shipment,exist_user: dict = Depends(get_current_user)):
-        print("user_exist",exist_user)
-        if exist_user is None:
-            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
+    try:
+            if exist_user is None:
+                raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
 
-            # Check if the shipment is already registered
-        existing_shipment = shipment_detail.find_one({"ShipmentNumber": ship.ShipmentNumber})
+                # Check if the shipment is already registered
+            existing_shipment = shipment_detail.find_one({"ShipmentNumber": ship.ShipmentNumber})
 
-        if existing_shipment:
-            raise HTTPException(status_code=400, detail="Shipment already exists")
-        # print("pythoncode")
-        NewShipment_data = {
-            "username": exist_user["username"],
-            "email": exist_user["email"],  
-            "ShipmentNumber":ship.ShipmentNumber,
-            "RouteDetails":ship.RouteDetails,
-            "Device": ship.Device,
-            "PoNumber": ship.PoNumber,
-            "NdcNumber": ship.NdcNumber,
-            "SerialNumber": ship.SerialNumber,
-            "ContainerNum": ship.ContainerNum,
-            "GoodsType": ship.GoodsType,
-            "ExpectedDeliveryDate": ship.ExpectedDeliveryDate,
-            "DeliveryNumber": ship.DeliveryNumber,
-            "BatchId": ship.BatchId,
-            "ShipmentDescription":ship.ShipmentDescription}
+            if existing_shipment:
+                raise HTTPException(status_code=400, detail="Shipment already exists")
+            # print("pythoncode")
+            NewShipment_data = {
+                "username": exist_user["username"],
+                "email": exist_user["email"],  
+                "ShipmentNumber":ship.ShipmentNumber,
+                "RouteDetails":ship.RouteDetails,
+                "Device": ship.Device,
+                "PoNumber": ship.PoNumber,
+                "NdcNumber": ship.NdcNumber,
+                "SerialNumber": ship.SerialNumber,
+                "ContainerNum": ship.ContainerNum,
+                "GoodsType": ship.GoodsType,
+                "ExpectedDeliveryDate": ship.ExpectedDeliveryDate,
+                "DeliveryNumber": ship.DeliveryNumber,
+                "BatchId": ship.BatchId,
+                "ShipmentDescription":ship.ShipmentDescription}
 
 
-        # Ensure that NewShipment_data is converted to a dictionary before insertion
-        shipment_detail.insert_one(NewShipment_data)
-        print(NewShipment_data)
-
-        return {"message": "Shipment added successfully"}
-
+            # Ensure that NewShipment_data is converted to a dictionary before insertion
+            shipment_detail.insert_one(NewShipment_data)
+            return {"message": "Shipment added successfully"}
+    except HTTPException as http_error:
+        if http_error.detail == "Not authenticated":
+            raise HTTPException(status_code=401, detail=http_error.detail)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
 
 
 #myshipment router function

@@ -47,16 +47,17 @@ window.addEventListener('load', () => {
 
                 // Store in local storage
                 localStorage.setItem('token', signin.token);
-                sessionStorage.setItem("email", signin.email);
-                sessionStorage.setItem("username", signin.username);
-                sessionStorage.setItem("role", signin.role);
-
+                localStorage.setItem("email", signin.email);
+                localStorage.setItem("username", signin.username);
+                localStorage.setItem("role", signin.role);
+                
                 document.getElementById('success-message').innerText = `Success: ${signin.message}`;
                 clearAfterDelay(3000);
                 // Redirect to Dashboard 
 
             } else {
-                document.getElementById('userpassword').innerText = ` ${errorData.detail}`;
+                const errorData = await response.json();
+                document.getElementById('userpassword').innerText = `${errorData.detail}`;
                 return false;
             }
         } catch (error) {
@@ -66,7 +67,7 @@ window.addEventListener('load', () => {
         function clearAfterDelay(delay) {
             setTimeout(() => {
                 document.getElementById('success-message').innerText = '';
-                window.location.href = 'Dashboard.html';
+                window.location.href = '/Front/Templates/Dashboard.html';
             }, delay);
 
         }

@@ -20,6 +20,3 @@ feedback_collection = db["feedback_data"]
 
 
 
-# MongoDB setup
-
-
